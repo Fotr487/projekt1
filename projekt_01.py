@@ -26,26 +26,30 @@ represent several varieties of perch, as well as
 other freshwater genera and herring similar to those 
 in modern oceans. Other fish such as paddlefish, 
 garpike and stingray are also present.''']
-space = '=' * 80
+SPACE = '=' * 80
 count_cap = []
 count_cap_all = []
 count_low = []
 count_numb = []
 text_bez_znaku = []
+
 name = input('Enter your username: ')
 password = input('Enter your password: ')
-registered = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"}
+registered = {"bob": "123",
+              "ann": "pass123",
+              "mike": "password123",
+              "liz": "pass123"}
 if registered.get(name) == password:
-    print(f'NICE TO SEE YOU AGAIN {name}. YOU CAN USE TEXT ANALYZER.'.center(len(space)), space, sep="\n")
+    print(f'NICE TO SEE YOU AGAIN {name}. YOU CAN USE TEXT ANALYZER.'.center(len(SPACE)), SPACE, sep="\n")
 else:
-    print('SORRY YOU ARE NOT IN THE REGISTERED PEOPLE. GOODBYE!'.center(len(space)), space, sep="\n")
+    print('SORRY YOU ARE NOT IN THE REGISTERED PEOPLE. GOODBYE!'.center(len(SPACE)), SPACE, sep="\n")
     quit()
-print(f'WE HAVE {len(TEXTS)} TEXTS TO BE ANALYZED.'.center(len(space)), space, sep="\n")
+print(f'WE HAVE {len(TEXTS)} TEXTS TO BE ANALYZED.'.center(len(SPACE)), SPACE, sep="\n")
 choice = input(f'ENTER A NUMBER BTW. 1 AND {len(TEXTS)} TO SELECT:')
-print(space)
+print(SPACE)
 if choice.isdigit():
     if int(choice) >= len(TEXTS) + 1:
-        print('SORRY THIS TEXT IS NOT IN OUR OFFER. GOODBYE.'.center(len(space)), space, sep="\n")
+        print('SORRY THIS TEXT IS NOT IN OUR OFFER. GOODBYE.'.center(len(SPACE)), SPACE, sep="\n")
         quit()
     else:
         text = TEXTS[int(choice) - 1]
@@ -67,7 +71,7 @@ if choice.isdigit():
                 count_numb.append(slova)  # všechna čísla co se nachází v textu
 
 else:
-    print('SORRY YOU WROTE SOMETHING DIFFERENT THAN A NUMBER. GOODBYE.'.center(len(space)), space, sep="\n")
+    print('SORRY YOU WROTE SOMETHING DIFFERENT THAN A NUMBER. GOODBYE.'.center(len(SPACE)), SPACE, sep="\n")
     quit()
 for k in range(0, len(count_numb)):
     count_numb[k] = int(count_numb[k])
@@ -84,8 +88,8 @@ THERE ARE {len(count_cap_all)} UPPERCASE WORDS.
 THERE ARE {len(count_low)} LOWERCASE WORDS.
 THERE ARE {len(count_numb)} NUMERIC STRING.
 THE SUM OF ALL THE NUMBERS {celkove} 
-{space}''')
+{SPACE}''')
 print(f'''LEN|  OCCURENCES  |NR.
-{space}''')
+{SPACE}''')
 for key in sorted(cetnost.keys()):
     print(key, '|', '*' * cetnost[key], '|', cetnost[key])
